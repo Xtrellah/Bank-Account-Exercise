@@ -14,7 +14,7 @@ class BankAccount {
         }
     }
 
-    public function deposit($deposit) {
+    public function deposit(float $deposit): float {
         if ($deposit > 0)
         {
             return $this->balance + $deposit;
@@ -26,19 +26,23 @@ class BankAccount {
         return "Your balance is $this->balance";
     }
 
-    protected function calculateInterest() {
+    protected function calculateInterest(): float {
         return $this->balance * 0.05;
     }
 
-    public function applyInterest() {
+    public function applyInterest(): float {
         return $this->balance + $this->calculateInterest();
     }
 }
 
+
 $BankAccount = new BankAccount(100);
-$BankAccount->deposit(10.5);
-$BankAccount->getBalance();
-$BankAccount->calculateInterest();
-$BankAccount->applyInterest();
+$BankAccount->deposit(10.50);
+//$BankAccount->getBalance();
+//$BankAccount->calculateInterest();
+//$BankAccount->applyInterest();
+
+echo $BankAccount->getBalance();
+echo "<br>";
 
 var_dump($BankAccount);
